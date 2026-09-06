@@ -1,0 +1,273 @@
+.fv {
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fff;
+  container-type: inline-size;
+  isolation: isolate;
+}
+
+.header {
+  height: 11.733cqw;
+  padding-inline: 5.333cqw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+}
+
+.brand {
+  color: #173b45;
+  font-family: var(--font-editorial);
+  font-size: 3.467cqw;
+  letter-spacing: 0.17em;
+}
+
+.productName {
+  display: flex;
+  align-items: center;
+  gap: 1.6cqw;
+  color: #173b45;
+  font-size: 1.467cqw;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.productName::before {
+  width: 4cqw;
+  height: 1px;
+  background: #d9dfe0;
+  content: "";
+}
+
+.stage {
+  position: relative;
+  aspect-ratio: 375 / 623;
+}
+
+.visual {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  background: #f5c98f;
+}
+
+.visual::after {
+  position: absolute;
+  z-index: 1;
+  inset: 0 auto 0 0;
+  width: 17.067%;
+  background: #fff;
+  content: "";
+}
+
+.photo {
+  object-fit: cover;
+  object-position: center bottom;
+}
+
+.copy {
+  position: absolute;
+  z-index: 2;
+  inset: 0;
+  margin: 0;
+  pointer-events: none;
+}
+
+.copyLead,
+.copyMain {
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  color: #163b46;
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.copyLead {
+  top: 5.3%;
+  left: 17.067%;
+  width: 14.4cqw;
+  height: 32.267cqw;
+  padding: 2.4cqw 3.467cqw;
+  background: rgb(255 255 255 / 82%);
+  font-size: 4.8cqw;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
+.copyMain {
+  top: 24.1%;
+  left: 9.867%;
+  width: 10.4cqw;
+  height: 74.933cqw;
+  padding: 4.267cqw 1.333cqw;
+  background: linear-gradient(
+    90deg,
+    rgb(226 216 189 / 84%),
+    rgb(244 240 224 / 92%)
+  );
+  font-size: 6.933cqw;
+  letter-spacing: 0.12em;
+}
+
+.signature {
+  position: absolute;
+  z-index: 1;
+  top: 0.4%;
+  left: 65.5%;
+  color: transparent;
+  background: linear-gradient(135deg, #b88136, #efd9a0, #b47a2d);
+  background-clip: text;
+  font-family: var(--font-signature);
+  font-size: 16cqw;
+  font-weight: 400;
+  line-height: 1;
+  transform: rotate(17deg) scaleX(1.15);
+  transform-origin: left center;
+  pointer-events: none;
+}
+
+.features {
+  position: absolute;
+  z-index: 3;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.feature {
+  position: absolute;
+  width: 26.667cqw;
+  height: 23.467cqw;
+  display: grid;
+  place-items: center;
+}
+
+.compact {
+  top: 46.9%;
+  left: 70.933%;
+}
+
+.power {
+  top: 53.95%;
+  left: 50.667%;
+}
+
+.wear {
+  top: 61%;
+  left: 70.933%;
+}
+
+.hexagon {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  fill: rgb(241 252 253 / 80%);
+  stroke: #afd6e3;
+  stroke-width: 1.35;
+}
+
+.featureLabel {
+  position: relative;
+  display: grid;
+  gap: 0.8cqw;
+  color: #06485c;
+  line-height: 1.15;
+  text-align: center;
+}
+
+.featureTitle,
+.featureText {
+  display: block;
+  font-family: var(--font-editorial);
+}
+
+.featureTitle {
+  font-size: 2.667cqw;
+  letter-spacing: 0.01em;
+}
+
+.featureText {
+  font-size: 2.4cqw;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.cta {
+  position: absolute;
+  z-index: 4;
+  top: 83.63%;
+  right: 8%;
+  left: 8%;
+  height: 14.4cqw;
+  min-height: 44px;
+  padding-inline: 10.667cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.067cqw solid #fff;
+  border-radius: 4.267cqw;
+  background: linear-gradient(90deg, #153d49 0%, #216271 62%, #39838a 100%);
+  box-shadow:
+    0 0 0 1px rgb(45 112 122 / 45%),
+    0 1.067cqw 3.2cqw rgb(24 66 72 / 14%);
+  color: #fff;
+  font-size: 3.2cqw;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.cta::before {
+  position: absolute;
+  top: 10%;
+  bottom: 10%;
+  left: 4cqw;
+  width: 1px;
+  background: rgb(255 255 255 / 70%);
+  content: "";
+}
+
+.ctaArrow {
+  position: absolute;
+  right: 2.133cqw;
+  width: 7.2cqw;
+  height: 7.2cqw;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgb(255 255 255 / 70%);
+  border-radius: 50%;
+  font-size: 4.8cqw;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.cta:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.cta:focus-visible {
+  outline: 2px solid #173e4a;
+  outline-offset: 3px;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
