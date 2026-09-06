@@ -1,0 +1,105 @@
+.problem {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  aspect-ratio: 1;
+  margin-inline: auto;
+  padding-top: 10.667cqw;
+  overflow: hidden;
+  border-top: 1px solid #d6b96c;
+  background: #fff;
+  container-type: inline-size;
+  color: #173b45;
+}
+
+.label {
+  margin: 0 5.333cqw 3.2cqw;
+  font-family: var(--font-editorial);
+  font-size: 2.667cqw;
+  letter-spacing: 0.34em;
+}
+
+.title {
+  margin: 0 5.333cqw 6.133cqw;
+  font-family: var(--font-editorial);
+  font-size: 5.867cqw;
+  font-weight: 400;
+  line-height: 1.35;
+  letter-spacing: 0.04em;
+}
+
+.visual {
+  position: relative;
+  width: calc(100% - 10.667cqw);
+  height: 56cqw;
+  margin-inline: 5.333cqw;
+  overflow: hidden;
+  background: #ecebe7;
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+}
+
+.hotelScene {
+  z-index: 1;
+}
+
+.packingScene {
+  z-index: 2;
+  clip-path: polygon(0 63%, 100% 47%, 100% 100%, 0 100%);
+}
+
+.hotelImage,
+.packingImage {
+  object-fit: cover;
+}
+
+.hotelImage {
+  object-position: 48% 46%;
+}
+
+.packingImage {
+  object-position: 50% 62%;
+}
+
+.caption,
+.conflict {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  background: rgb(255 255 255 / 90%);
+  color: #324d55;
+  font-family: var(--font-editorial);
+  white-space: nowrap;
+}
+
+.caption {
+  height: 8cqw;
+  padding-inline: 3.2cqw;
+  font-size: 2.667cqw;
+  letter-spacing: 0.03em;
+}
+
+.hotelCaption {
+  top: 4cqw;
+  left: 4.267cqw;
+}
+
+.conflict {
+  top: 19.467cqw;
+  left: 24.533cqw;
+  width: 48cqw;
+  height: 13.333cqw;
+  font-size: 4.8cqw;
+  letter-spacing: 0.08em;
+}
+
+.packingCaption {
+  right: 4.267cqw;
+  bottom: 4cqw;
+}
