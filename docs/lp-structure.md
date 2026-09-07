@@ -197,17 +197,19 @@ AIRFOLD DUOが、
 
 ### Confirmed
 
+- 見出し：`旅先にも、1年の安心を。`
+- 保証表示：`1 YEAR / 1年間完全保証`
+- 保証説明：`ご購入日から1年間、通常使用で生じた自然故障を無償で修理または交換します。`
+- 保証には購入証明が必要。
+- 落下・水濡れ・誤使用・改造・通常損耗は保証対象外。
+- 商品Visual：PROBLEMで困っていた女性が、展開状態のAIRFOLD DUOを片手に持ち、髪の仕上がりに満足している場面を掲載する。
 - CTA：`AIRFOLD DUOを購入する`
 - 外部購入サイトへ遷移する
 - 価格、送料、割引はLP本体では扱わない
 
 ### Pending
 
-- 保証の具体的な条件
-- 最終Copy
-- 商品Visualの有無・扱い
-- CTAと保証の情報量・配置
-- 遷移先URL
+- CTAの遷移先URL
 
 ### Avoid
 
@@ -217,9 +219,9 @@ AIRFOLD DUOが、
 
 ### Status
 
-- **Structure Fixed / Design Not Started**
-- Sectionの役割は確定。
-- CopyとVisual designは未確定。
+- **Design Exploring**
+- Copy、保証内容、使用する商品Visualは確定。
+- CTAの遷移先URLとVisual designの最終調整は未確定。
 
 ---
 
