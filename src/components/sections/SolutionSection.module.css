@@ -1,0 +1,136 @@
+.solution {
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  overflow: hidden;
+  background: #fff;
+  container-type: inline-size;
+  color: #173b45;
+}
+
+.introduction {
+  padding: 10.667cqw 5.333cqw 7.467cqw;
+  text-align: center;
+}
+
+.concept {
+  margin: 0 0 4.267cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3.2cqw;
+  color: #1f5661;
+  font-family: var(--font-editorial);
+  font-size: 3.2cqw;
+  letter-spacing: 0.2em;
+}
+
+.cross {
+  color: #b88b43;
+  font-size: 4.8cqw;
+  letter-spacing: 0;
+}
+
+.copy {
+  margin: 0;
+  color: #173b45;
+  font-family: var(--font-editorial);
+  font-size: 4.8cqw;
+  line-height: 1.7;
+  letter-spacing: 0.05em;
+}
+
+.copy strong {
+  font-size: 6.133cqw;
+  font-weight: 400;
+}
+
+.airVolume {
+  margin: 4cqw 0 0;
+  color: #5f777b;
+  font-size: 2.667cqw;
+  letter-spacing: 0.12em;
+}
+
+.comparison {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.comparisonBackground {
+  z-index: 0;
+  object-fit: cover;
+}
+
+.phoneFrame {
+  position: absolute;
+  z-index: 2;
+  top: 15.467cqw;
+  left: 19cqw;
+  width: 23.333cqw;
+  height: 50cqw;
+  overflow: hidden;
+  border-radius: 4.267cqw;
+  box-shadow: 0 3.2cqw 5.333cqw rgb(43 44 39 / 24%);
+}
+
+.phoneImage {
+  position: absolute;
+  top: -1.467cqw;
+  left: -6.133cqw;
+  width: 35.4cqw;
+  height: auto;
+  max-width: none;
+}
+
+.product {
+  position: absolute;
+  z-index: 2;
+  top: 11cqw;
+  left: 57.5cqw;
+  width: 26cqw;
+  height: auto;
+  max-width: none;
+  filter: drop-shadow(0 3.2cqw 5.333cqw rgb(74 68 55 / 22%));
+}
+
+.comparisonLabel {
+  position: absolute;
+  z-index: 3;
+  bottom: 5.333cqw;
+  width: 31cqw;
+  margin: 0;
+  padding: 1.6cqw 1.333cqw;
+  background: rgb(255 255 255 / 88%);
+  color: #274d56;
+  text-align: center;
+}
+
+.phoneLabel {
+  left: 15.5cqw;
+}
+
+.productLabel {
+  right: 13.5cqw;
+}
+
+.comparisonLabel span,
+.comparisonLabel strong {
+  display: block;
+}
+
+.comparisonLabel span {
+  font-size: 2.133cqw;
+  letter-spacing: 0.06em;
+}
+
+.comparisonLabel strong {
+  margin-top: 0.8cqw;
+  font-family: var(--font-editorial);
+  font-size: 3.2cqw;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
