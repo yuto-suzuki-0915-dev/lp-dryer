@@ -146,39 +146,43 @@ AIRFOLD DUOが解決策であることを明示する。
 ### Purpose
 
 AIRFOLD DUOが、
-携帯性と旅先でのヘアケアを両立できる理由を納得させる。
+携帯性、旅先でのヘアケア、衣類乾燥を一台で支える理由を納得させる。
 
 ### Core idea
 
-- 持ち運びやすさ
-- 小さいだけではないこと
-- ヘアケア性能を支える機能
+- SOLUTIONまでに伝えた携帯性と風量を、温度管理と衣類乾燥を含む3つの機能として振り返る。
+- 小ささだけでなく、旅先で役立つ用途とヘアケア性能を備えた商品として理解させる。
 
-### Known ingredients
+### Confirmed
 
-- 折りたたみ設計
-- パワフル風量
-- 温度管理
+- Section label：`REASON`
+- 導入見出し：`選ばれる、3つの機能。`
+- Feature数：3つ
+- Feature 01：折りたたみ設計によるコンパクトさ
+- Feature 02：パワフル風量を活かした衣類乾燥
+- Feature 03：髪に配慮する温度管理
+- Featureは六角形を使って表現し、六角形から伸びる線で各機能の説明と結びつける。
+- 3つのFeatureは、単なる機能追加ではなく、ここまでの訴求を整理して購入理由へ変える役割を持つ。
 
 ### Pending
 
-- どのFeatureを何個見せるか
-- Featureをどの順番・粒度で見せるか
-- 衣類乾燥の説明をこのSectionに配置するか（全体方針は `Clothing drying: confirmed & pending` を参照）
-- 最終Copy
-- Visual design
+- 各Featureの最終Copyと説明量
+- 衣類乾燥Visualと、その具体的な見せ方
+- 六角形内に商品VisualまたはIconを配置するか
+- 各Feature説明のResponsive配置
 
 ### Avoid
 
 - 根拠のない性能数値
 - 未確認の競合比較
 - 情報量を増やすためだけの機能羅列
+- 衣類乾燥の未確認な使用方法・アタッチメント・安全条件を推測で描写する
 
 ### Status
 
-- **Exploring**
-- Sectionの目的は確定。
-- 具体的な構成はデザイン探索と合わせて決める。
+- **Design Exploring**
+- Feature数、扱う3機能、六角形を中心にした基本構造は確定。
+- 衣類乾燥素材の決定後に各FeatureのVisualと最終Copyを詰める。
 
 ---
 
