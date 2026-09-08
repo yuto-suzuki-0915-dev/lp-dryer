@@ -2,9 +2,8 @@
   position: relative;
   width: 100%;
   max-width: 430px;
-  aspect-ratio: 1;
   margin-inline: auto;
-  padding-top: 10.667cqw;
+  padding-block: 10.667cqw;
   overflow: hidden;
   border-top: 1px solid #d6b96c;
   background: #fff;
@@ -29,26 +28,35 @@
 }
 
 .visual {
-  position: relative;
   width: calc(100% - 10.667cqw);
-  height: 56cqw;
   margin-inline: 5.333cqw;
-  overflow: hidden;
-  background: #ecebe7;
+  display: flex;
+  flex-direction: column;
+  gap: 4.267cqw;
+}
+
+.visualBlock {
+  position: relative;
+  height: 38.4cqw;
 }
 
 .scene {
   position: absolute;
-  inset: 0;
+  top: 0;
+  bottom: 0;
+  width: 54.4cqw;
+  overflow: hidden;
+  background: #ecebe7;
 }
 
 .hotelScene {
+  left: 0;
   z-index: 1;
 }
 
 .packingScene {
-  z-index: 2;
-  clip-path: polygon(0 63%, 100% 47%, 100% 100%, 0 100%);
+  right: 0;
+  z-index: 1;
 }
 
 .hotelImage,
@@ -66,7 +74,6 @@
 
 .caption,
 .conflict {
-  position: absolute;
   z-index: 3;
   display: flex;
   align-items: center;
@@ -86,20 +93,23 @@
 }
 
 .hotelCaption {
-  top: 4cqw;
-  left: 4.267cqw;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
 }
 
 .conflict {
-  top: 19.467cqw;
-  left: 24.533cqw;
   width: 48cqw;
   height: 13.333cqw;
+  margin: 6.133cqw auto 0;
   font-size: 4.8cqw;
   letter-spacing: 0.08em;
 }
 
 .packingCaption {
-  right: 4.267cqw;
-  bottom: 4cqw;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
 }
