@@ -3,19 +3,62 @@
   width: 100%;
   max-width: 430px;
   margin-inline: auto;
-  padding-block: 10.667cqw;
+  padding: 16cqw 0 10.667cqw;
   overflow: hidden;
-  border-top: 1px solid #d6b96c;
-  background: #fff;
+  background: linear-gradient(
+    180deg,
+    #fff 0%,
+    #f5faf9 14%,
+    #deefed 52%,
+    #f4f9f8 86%,
+    #fff 100%
+  );
   container-type: inline-size;
   color: #173b45;
 }
 
+.problem::before {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    url("/images/problem/problem-water-caustics.svg") center / 100% 100% no-repeat,
+    url("/images/fv/composite_v08_elnora_v02_foil.png") left top / 219.3% auto no-repeat;
+  content: "";
+  filter: saturate(0.32) contrast(0.58) brightness(1.28);
+  mask-image: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 17%,
+    #000 78%,
+    transparent 100%
+  );
+  opacity: 0.46;
+  pointer-events: none;
+}
+
+.problem > * {
+  position: relative;
+  z-index: 1;
+}
+
 .label {
   margin: 0 5.333cqw 3.2cqw;
-  font-family: var(--font-editorial);
-  font-size: 2.667cqw;
+  background: linear-gradient(
+    90deg,
+    #55b8e8 0%,
+    #73b7c8 42%,
+    #9faeb2 68%,
+    #e5a28c 100%
+  );
+  background-clip: text;
+  color: transparent;
+  font-family: var(--font-body);
+  font-size: 2.4cqw;
+  font-weight: 400;
+  line-height: 1.3;
   letter-spacing: 0.34em;
+  text-align: center;
 }
 
 .title {
@@ -25,6 +68,7 @@
   font-weight: 400;
   line-height: 1.35;
   letter-spacing: 0.04em;
+  text-align: center;
 }
 
 .visual {
@@ -32,12 +76,19 @@
   margin-inline: 5.333cqw;
   display: flex;
   flex-direction: column;
-  gap: 4.267cqw;
+  gap: 5.333cqw;
 }
 
 .visualBlock {
   position: relative;
-  height: 38.4cqw;
+}
+
+.hotelBlock {
+  height: 34.667cqw;
+}
+
+.packingBlock {
+  height: 34.667cqw;
 }
 
 .scene {
@@ -50,13 +101,22 @@
 }
 
 .hotelScene {
+  top: 0;
+  bottom: auto;
   left: 0;
   z-index: 1;
+  width: 60cqw;
+  height: 30.667cqw;
+  border-top-right-radius: 15.333cqw;
 }
 
 .packingScene {
+  bottom: auto;
   right: 0;
   z-index: 1;
+  width: 60cqw;
+  height: 30.667cqw;
+  border-top-left-radius: 15.333cqw;
 }
 
 .hotelImage,
@@ -65,7 +125,9 @@
 }
 
 .hotelImage {
-  object-position: 48% 46%;
+  object-position: 24% 46%;
+  transform: scale(1.18);
+  transform-origin: 38% 46%;
 }
 
 .packingImage {
@@ -86,30 +148,106 @@
 }
 
 .caption {
-  height: 8cqw;
-  padding-inline: 3.2cqw;
-  font-size: 2.667cqw;
-  letter-spacing: 0.03em;
+  box-sizing: border-box;
+  display: block;
+  height: auto;
+  width: 38.4cqw;
+  padding: 2.667cqw;
+  background: rgb(255 253 248 / 98%);
+  box-shadow: 0 1.333cqw 4cqw rgb(44 76 80 / 6%);
+  white-space: normal;
 }
 
 .hotelCaption {
   position: absolute;
-  top: 50%;
+  top: 4cqw;
   right: 0;
-  transform: translateY(-50%);
+}
+
+.cardTitle,
+.cardBody {
+  margin: 0;
+}
+
+.cardTitleAccent {
+  display: inline-block;
+  margin-right: 0.8cqw;
+  padding: 0.467cqw 0.933cqw 0.2cqw;
+  background: linear-gradient(90deg, #739dbd 0%, #83b9bd 100%);
+  color: #fff;
+  line-height: 1.35;
+}
+
+.cardTitle {
+  margin-bottom: 1.867cqw;
+  color: #173f49;
+  font-family: var(--font-editorial);
+  font-size: 2.667cqw;
+  font-weight: 600;
+  line-height: 1.45;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.cardBody {
+  color: #667a80;
+  font-family: var(--font-editorial);
+  font-size: 1.733cqw;
+  line-height: 1.8;
+  letter-spacing: 0.015em;
+}
+
+.cardBody span {
+  display: block;
+}
+
+.cardBody span + span {
+  margin-top: 0.8cqw;
 }
 
 .conflict {
-  width: 48cqw;
-  height: 13.333cqw;
-  margin: 6.133cqw auto 0;
-  font-size: 4.8cqw;
-  letter-spacing: 0.08em;
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 34.667cqw;
+  margin: 6.133cqw 0 -10.667cqw;
+  padding: 8cqw 5.333cqw 10.667cqw;
+  flex-direction: column;
+  gap: 1.6cqw;
+  background: linear-gradient(
+    180deg,
+    rgb(255 255 255 / 0%) 0%,
+    rgb(252 249 242 / 54%) 44%,
+    rgb(247 238 220 / 78%) 100%
+  );
+  color: #173f49;
+  text-align: center;
+  white-space: normal;
+}
+
+.bridgeLead,
+.bridgeMain {
+  margin: 0;
+  font-family: var(--font-editorial);
+}
+
+.bridgeLead {
+  color: #365b63;
+  font-size: 3.2cqw;
+  font-weight: 400;
+  line-height: 1.65;
+  letter-spacing: 0.05em;
+}
+
+.bridgeMain {
+  color: #173f49;
+  font-size: 4.267cqw;
+  font-weight: 500;
+  line-height: 1.55;
+  letter-spacing: 0.055em;
 }
 
 .packingCaption {
   position: absolute;
-  top: 50%;
+  top: 4cqw;
   left: 0;
-  transform: translateY(-50%);
 }

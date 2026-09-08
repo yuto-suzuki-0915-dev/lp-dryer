@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 570" preserveAspectRatio="none">
+  <defs>
+    <radialGradient id="white-glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.48"/>
+      <stop offset="0.52" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="aqua-depth" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#79bdc0" stop-opacity="0.2"/>
+      <stop offset="1" stop-color="#79bdc0" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft-blur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="18"/>
+    </filter>
+    <filter id="caustic-blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="5.5"/>
+    </filter>
+    <filter id="ripple-blur" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="0.8"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#soft-blur)">
+    <ellipse cx="415" cy="78" rx="116" ry="82" fill="url(#white-glow)"/>
+    <ellipse cx="-12" cy="218" rx="92" ry="128" fill="url(#white-glow)" opacity="0.72"/>
+    <ellipse cx="425" cy="393" rx="102" ry="142" fill="url(#white-glow)" opacity="0.76"/>
+    <ellipse cx="48" cy="562" rx="130" ry="76" fill="url(#white-glow)" opacity="0.68"/>
+    <ellipse cx="436" cy="235" rx="78" ry="118" fill="url(#aqua-depth)"/>
+    <ellipse cx="-22" cy="430" rx="70" ry="105" fill="url(#aqua-depth)" opacity="0.7"/>
+  </g>
+
+  <g fill="#ffffff" filter="url(#caustic-blur)" opacity="0.25">
+    <path d="M287-20C328 13 321 54 365 70C400 82 427 61 463 78L468 102C425 84 402 111 357 91C313 72 324 34 276 7Z"/>
+    <path d="M-34 160C15 174 13 214 59 229C91 239 119 222 151 253L143 274C108 249 82 270 47 251C6 230 12 196-41 185Z"/>
+    <path d="M352 178C384 151 413 177 447 164C466 157 481 142 493 126L501 150C484 174 463 187 439 190C405 194 388 176 357 202Z"/>
+    <path d="M337 332C374 305 395 337 431 325C460 315 472 288 499 277L505 303C475 315 466 344 431 351C393 359 378 333 344 357Z"/>
+    <path d="M-39 455C4 429 30 460 68 449C100 440 115 413 146 409L154 431C121 437 110 465 75 475C35 486 11 457-32 483Z"/>
+    <path d="M22 548C62 519 91 545 126 532C149 524 165 507 184 486L196 505C176 531 154 548 128 555C91 565 66 543 31 570Z"/>
+  </g>
+
+  <g fill="none" stroke="#8fc9ca" stroke-width="7" stroke-linecap="round" filter="url(#caustic-blur)" opacity="0.09">
+    <path d="M307 4C340 35 378 22 399 51C418 77 402 99 432 124"/>
+    <path d="M-18 194C23 203 20 239 56 253C88 266 109 248 136 278"/>
+    <path d="M360 352C394 327 417 354 449 343C474 334 483 313 502 301"/>
+    <path d="M-18 487C16 468 41 493 74 483C104 474 120 450 148 448"/>
+  </g>
+
+  <g fill="none" stroke="#ffffff" stroke-width="1.2" filter="url(#ripple-blur)" opacity="0.12">
+    <ellipse cx="398" cy="143" rx="28" ry="10"/>
+    <ellipse cx="398" cy="143" rx="43" ry="16" opacity="0.56"/>
+    <ellipse cx="34" cy="374" rx="23" ry="8"/>
+    <ellipse cx="34" cy="374" rx="37" ry="13" opacity="0.52"/>
+    <ellipse cx="392" cy="521" rx="20" ry="7" opacity="0.66"/>
+  </g>
+
+  <g fill="#ffffff" opacity="0.11">
+    <circle cx="410" cy="188" r="2.2"/>
+    <circle cx="417" cy="198" r="1.2"/>
+    <circle cx="18" cy="405" r="1.8"/>
+    <circle cx="27" cy="415" r="1"/>
+  </g>
+</svg>
