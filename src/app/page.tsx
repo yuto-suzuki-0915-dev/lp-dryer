@@ -3,15 +3,19 @@ import FinalSection from "@/components/sections/FinalSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import ReasonSection from "@/components/sections/ReasonSection";
 import SolutionSection from "@/components/sections/SolutionSection";
+import LpHeader from "@/components/ui/LpHeader";
 
 export default function Home() {
   return (
-    <main>
-      <FirstView />
-      <ProblemSection />
-      <SolutionSection />
-      <ReasonSection />
-      <FinalSection />
-    </main>
+    <>
+      <LpHeader />
+      <main>
+        <FirstView />
+        <ProblemSection />
+        <SolutionSection />
+        <ReasonSection />
+        <FinalSection />
+      </main>
+    </>
   );
 }
