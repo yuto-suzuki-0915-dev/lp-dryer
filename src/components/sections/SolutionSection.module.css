@@ -105,7 +105,7 @@
 .comparison {
   position: relative;
   width: 100%;
-  aspect-ratio: 1;
+  height: 110cqw;
   margin-top: -3.2cqw;
   overflow: hidden;
   background: linear-gradient(
