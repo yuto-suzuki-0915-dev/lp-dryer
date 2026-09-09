@@ -19,14 +19,6 @@ export default function SolutionSection() {
       </div>
 
       <div className={styles.comparison}>
-        <Image
-          src="/images/backgrounds/solution_water_square_v02.png"
-          alt=""
-          fill
-          sizes="(max-width: 430px) 100vw, 430px"
-          className={styles.comparisonBackground}
-        />
-
         <div className={styles.phoneFrame}>
           <Image
             src="/images/products/iphone_17_front_realistic_v01.png"
