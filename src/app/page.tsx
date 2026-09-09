@@ -1,5 +1,5 @@
 import FirstView from "@/components/sections/FirstView";
-import FinalSection from "@/components/sections/FinalSection";
+import ClosingSection from "@/components/sections/ClosingSection";
 import ProblemSection from "@/components/sections/ProblemSection";
 import ReasonSection from "@/components/sections/ReasonSection";
 import SolutionSection from "@/components/sections/SolutionSection";
@@ -14,7 +14,7 @@ export default function Home() {
         <ProblemSection />
         <SolutionSection />
         <ReasonSection />
-        <FinalSection />
+        <ClosingSection />
       </main>
     </>
   );

@@ -1,0 +1,182 @@
+.finalCta {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  padding: 12.8cqw 5.333cqw 12.8cqw;
+  overflow: hidden;
+  container-type: inline-size;
+  color: #174854;
+  text-align: center;
+  background: #e9f1ee;
+}
+
+.integrated {
+  background: transparent;
+}
+
+.integrated::before,
+.integrated::after {
+  display: none;
+}
+
+.finalCta::before,
+.finalCta::after {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  content: "";
+  pointer-events: none;
+}
+
+.finalCta::before {
+  background: url("/images/final/final-cta-water-scene_v01.png") center / cover no-repeat;
+}
+
+.finalCta::after {
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 96% 43% at 51% 47%, rgb(249 247 236 / 100%) 0%, rgb(249 247 236 / 100%) 57%, rgb(249 247 236 / 88%) 75%, rgb(249 247 236 / 34%) 92%, transparent 100%),
+    linear-gradient(180deg, rgb(237 249 249 / 12%) 0%, transparent 18%, transparent 71%, rgb(248 247 238 / 46%) 100%);
+}
+
+.introduction {
+  position: relative;
+  z-index: 1;
+}
+
+.eyebrow {
+  margin: 0;
+  color: #4a8a9a;
+  font-family: var(--font-body);
+  font-size: 2.4cqw;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.34em;
+}
+
+.lead {
+  margin: 3.2cqw 0 0;
+  color: #225664;
+  font-family: var(--font-fv-serif), var(--font-editorial);
+  font-size: 4.8cqw;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+}
+
+.title {
+  margin: 5.333cqw 0 0;
+  color: #174854;
+  font-family: var(--font-fv-serif), var(--font-editorial);
+  font-size: 6.267cqw;
+  font-weight: 400;
+  line-height: 1.3;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.purchaseBlock {
+  position: relative;
+  z-index: 1;
+  margin-top: 2.667cqw;
+}
+
+.cta {
+  position: relative;
+  width: 100%;
+  min-height: 14.4cqw;
+  margin-top: 7.467cqw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgb(255 255 255 / 75%);
+  border-radius: 999px;
+  background: #174d5a;
+  box-shadow: 0 0 0 1px rgb(23 77 90 / 15%);
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 4.267cqw;
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-decoration: none;
+}
+
+.cta:disabled {
+  cursor: default;
+  opacity: 1;
+}
+
+.ctaArrow {
+  position: absolute;
+  right: 6.4cqw;
+  font-family: var(--font-fv-feature-latin), serif;
+  font-size: 7.2cqw;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.conditions {
+  margin: 8cqw 0 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  list-style: none;
+}
+
+.conditions li {
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2.133cqw;
+  color: #265a66;
+  font-family: var(--font-fv-serif), var(--font-editorial);
+  font-size: 3.467cqw;
+  letter-spacing: 0.08em;
+  white-space: nowrap;
+}
+
+.conditions li + li {
+  border-left: 0;
+}
+
+.conditions svg {
+  width: 6.4cqw;
+  height: 6.4cqw;
+  flex: 0 0 auto;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.5;
+}
+
+.brand {
+  margin-top: 10.667cqw;
+  display: grid;
+  justify-items: center;
+  gap: 3.467cqw;
+  color: #2b6876;
+}
+
+.brandRule {
+  width: 10.667cqw;
+  height: 1px;
+  background: #2b6876;
+}
+
+.brand p {
+  margin: 0;
+  font-family: var(--font-fv-feature-latin), var(--font-editorial);
+  font-size: 6.4cqw;
+  font-weight: 500;
+  letter-spacing: 0.28em;
+  line-height: 1;
+}
+
+.brand small {
+  font-family: var(--font-body);
+  font-size: 1.867cqw;
+  letter-spacing: 0.36em;
+}
