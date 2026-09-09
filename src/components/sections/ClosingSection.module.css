@@ -1,0 +1,47 @@
+.closing {
+  --closing-ivory: #f7f7f2;
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  max-width: 430px;
+  margin-inline: auto;
+  overflow: hidden;
+  container-type: inline-size;
+  background: var(--closing-ivory);
+}
+
+.guaranteeGround,
+.ctaGround {
+  position: absolute;
+  z-index: -2;
+  right: 0;
+  left: 0;
+  pointer-events: none;
+}
+
+.guaranteeGround {
+  top: 0;
+  height: 64.063cqw;
+  background:
+    radial-gradient(ellipse 23.438% 46.748% at 5% 21%, rgb(197 220 220 / 45%), transparent 76%),
+    radial-gradient(ellipse 37.109% 27.439% at 24% 100%, rgb(208 227 223 / 42%), transparent 78%),
+    radial-gradient(ellipse 20.833% 43.699% at 99% 89%, rgb(207 226 224 / 41%), transparent 80%),
+    radial-gradient(ellipse 29.948% 33.537% at 37% 52%, rgb(255 250 237 / 58%), transparent 75%),
+    radial-gradient(ellipse 39.063% 39.634% at 80% 9%, rgb(255 253 250 / 83%), transparent 82%),
+    var(--closing-ivory);
+}
+
+.ctaGround {
+  top: 64.063cqw;
+  bottom: 0;
+  background: url("/images/final/final-cta-water-scene_v01.png") center / cover no-repeat;
+}
+
+.ctaGround::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, var(--closing-ivory) 0%, rgb(247 247 242 / 94%) 12%, rgb(247 247 242 / 54%) 29%, transparent 46%),
+    radial-gradient(ellipse 96% 43% at 51% 47%, rgb(249 247 236 / 100%) 0%, rgb(249 247 236 / 100%) 57%, rgb(249 247 236 / 88%) 75%, rgb(249 247 236 / 34%) 92%, transparent 100%);
+  content: "";
+}
