@@ -2,6 +2,22 @@
   min-width: 0;
 }
 
+.reveal[data-initially-hidden="true"][data-visible="false"] {
+  opacity: 0;
+}
+
+.reveal[data-initially-hidden="true"][data-visible="false"][data-direction="up"] {
+  transform: translateY(24px);
+}
+
+.reveal[data-initially-hidden="true"][data-visible="false"][data-direction="left"] {
+  transform: translateX(-24px);
+}
+
+.reveal[data-initially-hidden="true"][data-visible="false"][data-direction="right"] {
+  transform: translateX(24px);
+}
+
 .reveal[data-ready="true"][data-visible="false"] {
   opacity: 0;
   transition: none;

@@ -1,0 +1,9 @@
+.page {
+  min-height: 100dvh;
+}
+
+.lpShell {
+  width: min(100%, 430px);
+  min-height: 100dvh;
+  margin-inline: auto;
+}

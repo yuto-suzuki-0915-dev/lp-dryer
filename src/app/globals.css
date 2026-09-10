@@ -23,6 +23,16 @@ body {
   font-family: var(--font-body);
 }
 
+@media (min-width: 431px) {
+  body {
+    background:
+      radial-gradient(ellipse 42% 46% at 0% 24%, rgb(207 228 226 / 62%) 0%, transparent 78%),
+      radial-gradient(ellipse 44% 48% at 100% 76%, rgb(232 215 183 / 48%) 0%, transparent 80%),
+      linear-gradient(180deg, #f4f7f5 0%, #e9efed 100%);
+    background-attachment: fixed;
+  }
+}
+
 button,
 a {
   font: inherit;
