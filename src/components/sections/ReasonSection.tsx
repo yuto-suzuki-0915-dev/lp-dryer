@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState, type TransitionEvent } from "react";
 import InViewReveal from "@/components/ui/InViewReveal";
 import styles from "./ReasonSection.module.css";
 
@@ -33,6 +33,8 @@ const features = [
 
 type Feature = (typeof features)[number];
 type FeatureId = Feature["id"];
+type MotionPhase = "idle" | "retracting" | "opening" | "open" | "closing" | "drawing";
+type ConnectionState = "visible" | "retracting" | "hidden" | "drawing";
 
 const WIDTH = 430;
 const HALF_HEIGHT = 60 * Math.sqrt(3) / 2;
@@ -54,9 +56,23 @@ const hexagon = (radius: number) => {
 
 const ribbon = `M25 0 L55 ${-HALF_HEIGHT} H115 L145 0 H397 L367 ${HALF_HEIGHT} H55 Z`;
 const outline = `M8 0 H17 L${17 + OUTLINE_RUN} ${OUTLINE_DROP} H${413 - OUTLINE_RUN} L413 0 H422`;
-const joinLines = `M422 ${FIRST_Y} l${-PITCH / (2 * Math.sqrt(3))} ${PITCH / 2} l${PITCH / (2 * Math.sqrt(3))} ${PITCH / 2} M8 ${FIRST_Y + PITCH} l${PITCH / (2 * Math.sqrt(3))} ${PITCH / 2} l${-PITCH / (2 * Math.sqrt(3))} ${PITCH / 2}`;
+const upperJoinLine = `M422 ${FIRST_Y} l${-PITCH / (2 * Math.sqrt(3))} ${PITCH / 2} l${PITCH / (2 * Math.sqrt(3))} ${PITCH / 2}`;
+const lowerJoinLine = `M8 ${FIRST_Y + PITCH} l${PITCH / (2 * Math.sqrt(3))} ${PITCH / 2} l${-PITCH / (2 * Math.sqrt(3))} ${PITCH / 2}`;
+const LINE_DURATION = 220;
+const PANEL_DURATION = 320;
+const TRANSITION_FALLBACK_BUFFER = 100;
 
-function FeatureGraphic({ feature, index, showJoinLines }: { feature: Feature; index: number; showJoinLines: boolean }) {
+function FeatureGraphic({
+  feature,
+  index,
+  connectionState,
+  onConnectionTransitionEnd,
+}: {
+  feature: Feature;
+  index: number;
+  connectionState: ConnectionState;
+  onConnectionTransitionEnd?: (event: TransitionEvent<SVGPathElement>) => void;
+}) {
   const { start, end } = ROW_BOUNDS[index];
   const y = FIRST_Y + index * PITCH;
   const reverse = index === 1;
@@ -65,7 +81,13 @@ function FeatureGraphic({ feature, index, showJoinLines }: { feature: Feature; i
   const gradientId = `reason-${feature.id}`;
 
   return (
-    <svg className={styles.featureGraphic} viewBox={`0 ${start} ${WIDTH} ${end - start}`} aria-hidden="true" focusable="false">
+    <svg
+      className={styles.featureGraphic}
+      viewBox={`0 ${start} ${WIDTH} ${end - start}`}
+      data-connection-state={connectionState}
+      aria-hidden="true"
+      focusable="false"
+    >
       <defs>
         <linearGradient id={`${gradientId}-glass`} x1="0%" y1="0%" x2="100%" y2="100%">
           <stop offset="0" stopColor="#fff" stopOpacity="0.96" />
@@ -92,7 +114,13 @@ function FeatureGraphic({ feature, index, showJoinLines }: { feature: Feature; i
           <stop offset="1" stopColor="#b9e1e1" stopOpacity="0" />
         </radialGradient>
       </defs>
-      {showJoinLines && <path className={styles.joinLine} d={joinLines} />}
+      <path
+        pathLength="1"
+        className={styles.joinLine}
+        d={upperJoinLine}
+        onTransitionEnd={onConnectionTransitionEnd}
+      />
+      <path pathLength="1" className={styles.joinLine} d={lowerJoinLine} />
       <g>
         <g transform={`translate(${reverse ? WIDTH : 0} ${y}) scale(${reverse ? -1 : 1} 1)`}>
           <path className={styles.ribbon} d={ribbon} fill={`url(#${gradientId}-ribbon-surface)`} />
@@ -116,6 +144,140 @@ function FeatureGraphic({ feature, index, showJoinLines }: { feature: Feature; i
 
 export default function ReasonSection() {
   const [openId, setOpenId] = useState<FeatureId | null>(null);
+  const [motionPhase, setMotionPhase] = useState<MotionPhase>("idle");
+  const openIdRef = useRef<FeatureId | null>(null);
+  const requestedIdRef = useRef<FeatureId | null>(null);
+  const motionPhaseRef = useRef<MotionPhase>("idle");
+
+  const updateOpenId = useCallback((id: FeatureId | null) => {
+    openIdRef.current = id;
+    setOpenId(id);
+  }, []);
+
+  const updateMotionPhase = useCallback((phase: MotionPhase) => {
+    motionPhaseRef.current = phase;
+    setMotionPhase(phase);
+  }, []);
+
+  const updateRequestedId = useCallback((id: FeatureId | null) => {
+    requestedIdRef.current = id;
+  }, []);
+
+  const advanceLineTransition = useCallback(() => {
+    if (motionPhaseRef.current === "retracting") {
+      const requestedId = requestedIdRef.current;
+      if (requestedId) {
+        updateOpenId(requestedId);
+        updateRequestedId(null);
+        updateMotionPhase("opening");
+      } else {
+        updateMotionPhase("drawing");
+      }
+      return;
+    }
+
+    if (motionPhaseRef.current === "drawing") {
+      updateMotionPhase("idle");
+    }
+  }, [updateMotionPhase, updateOpenId, updateRequestedId]);
+
+  const advancePanelTransition = useCallback(() => {
+    if (motionPhaseRef.current === "opening") {
+      updateMotionPhase("open");
+      return;
+    }
+
+    if (motionPhaseRef.current === "closing") {
+      const requestedId = requestedIdRef.current;
+      if (requestedId) {
+        updateOpenId(requestedId);
+        updateRequestedId(null);
+        updateMotionPhase("opening");
+      } else {
+        updateOpenId(null);
+        updateMotionPhase("drawing");
+      }
+    }
+  }, [updateMotionPhase, updateOpenId, updateRequestedId]);
+
+  useEffect(() => {
+    const timeout = motionPhase === "retracting" || motionPhase === "drawing"
+      ? window.setTimeout(advanceLineTransition, LINE_DURATION + TRANSITION_FALLBACK_BUFFER)
+      : motionPhase === "opening" || motionPhase === "closing"
+        ? window.setTimeout(advancePanelTransition, PANEL_DURATION + TRANSITION_FALLBACK_BUFFER)
+        : undefined;
+
+    return () => {
+      if (timeout) window.clearTimeout(timeout);
+    };
+  }, [advanceLineTransition, advancePanelTransition, motionPhase]);
+
+  const requestFeature = useCallback((id: FeatureId) => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const activeId = openIdRef.current;
+
+    if (prefersReducedMotion) {
+      updateRequestedId(null);
+      if (activeId === id) {
+        updateOpenId(null);
+        updateMotionPhase("idle");
+      } else {
+        updateOpenId(id);
+        updateMotionPhase("open");
+      }
+      return;
+    }
+
+    switch (motionPhaseRef.current) {
+      case "idle":
+        updateRequestedId(id);
+        updateMotionPhase("retracting");
+        break;
+      case "retracting":
+        if (requestedIdRef.current === id) {
+          updateRequestedId(null);
+          updateMotionPhase("drawing");
+        } else {
+          updateRequestedId(id);
+        }
+        break;
+      case "opening":
+      case "open":
+        updateRequestedId(activeId === id ? null : id);
+        updateMotionPhase("closing");
+        break;
+      case "closing":
+        if (activeId === id) {
+          updateRequestedId(null);
+          updateMotionPhase("opening");
+        } else {
+          updateRequestedId(id);
+        }
+        break;
+      case "drawing":
+        updateRequestedId(id);
+        updateMotionPhase("retracting");
+        break;
+    }
+  }, [updateMotionPhase, updateOpenId, updateRequestedId]);
+
+  const connectionState: ConnectionState = motionPhase === "retracting"
+    ? "retracting"
+    : motionPhase === "drawing"
+      ? "drawing"
+      : motionPhase === "idle"
+        ? "visible"
+        : "hidden";
+
+  const handleConnectionTransitionEnd = useCallback((event: TransitionEvent<SVGPathElement>) => {
+    if (event.propertyName === "stroke-dashoffset") advanceLineTransition();
+  }, [advanceLineTransition]);
+
+  const handlePanelTransitionEnd = useCallback((event: TransitionEvent<HTMLElement>) => {
+    if (event.target === event.currentTarget && event.propertyName === "grid-template-rows") {
+      advancePanelTransition();
+    }
+  }, [advancePanelTransition]);
 
   return (
     <section className={styles.reason} aria-labelledby="reason-title">
@@ -129,7 +291,7 @@ export default function ReasonSection() {
       <div className={styles.featureMap}>
         <div className={styles.featureList}>
           {features.map((feature, index) => {
-            const isOpen = openId === feature.id;
+            const isOpen = openId === feature.id && (motionPhase === "opening" || motionPhase === "open");
             const reverse = index === 1;
             return (
               <InViewReveal key={feature.id} direction={reverse ? "right" : "left"} delay={index * 110}>
@@ -140,9 +302,14 @@ export default function ReasonSection() {
                     type="button"
                     aria-expanded={isOpen}
                     aria-controls={`${feature.id}-panel`}
-                    onClick={() => setOpenId((current) => current === feature.id ? null : feature.id)}
+                    onClick={() => requestFeature(feature.id)}
                   >
-                    <FeatureGraphic feature={feature} index={index} showJoinLines={openId === null} />
+                    <FeatureGraphic
+                      feature={feature}
+                      index={index}
+                      connectionState={connectionState}
+                      onConnectionTransitionEnd={index === 1 ? handleConnectionTransitionEnd : undefined}
+                    />
                     <span className={styles.detailHint} aria-hidden="true">{isOpen ? "−" : "+"}</span>
                     <span className={styles.srOnly}>
                       {feature.number} {feature.english}：{feature.title}の詳細を{isOpen ? "閉じる" : "表示する"}
@@ -155,6 +322,7 @@ export default function ReasonSection() {
                     role="region"
                     aria-labelledby={`${feature.id}-trigger`}
                     aria-hidden={!isOpen}
+                    onTransitionEnd={handlePanelTransitionEnd}
                   >
                     <div className={styles.panelContent}>
                       <p className={styles.panelLabel}>{feature.number} {feature.english}</p>
