@@ -158,6 +158,27 @@
   white-space: normal;
 }
 
+.captionReveal {
+  position: absolute;
+  z-index: 3;
+  width: 38.4cqw;
+}
+
+.captionReveal .caption {
+  position: static;
+  width: 100%;
+}
+
+.hotelCaptionReveal {
+  top: 4cqw;
+  right: 0;
+}
+
+.packingCaptionReveal {
+  top: 4cqw;
+  left: 0;
+}
+
 .hotelCaption {
   position: absolute;
   top: 4cqw;

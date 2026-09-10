@@ -232,8 +232,18 @@
 
 .comparisonLabel strong {
   margin-top: 0.8cqw;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.533cqw;
   font-family: var(--font-editorial);
   font-size: 3.2cqw;
   font-weight: 400;
   letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.comparisonLabel .measurementUnit {
+  font-size: 0.86em;
+  letter-spacing: 0.02em;
 }

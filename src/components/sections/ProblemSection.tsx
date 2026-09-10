@@ -1,4 +1,5 @@
 import Image from "next/image";
+import InViewReveal from "@/components/ui/InViewReveal";
 import styles from "./ProblemSection.module.css";
 
 export default function ProblemSection() {
@@ -21,28 +22,42 @@ export default function ProblemSection() {
             />
           </div>
 
-          <article className={`${styles.caption} ${styles.hotelCaption}`}>
-            <h3 className={styles.cardTitle}>
-              <span className={styles.cardTitleAccent}>仕上がり</span>
-              <span>が決まらない。</span>
-            </h3>
-            <p className={styles.cardBody}>
-              <span>備え付けのドライヤーは、風量も温度もいつもと違う。旅先では、いつものまとまりやツヤをつくりにくい。</span>
-            </p>
-          </article>
+          <InViewReveal
+            direction="right"
+            delay={160}
+            rootMargin="0px 0px -18% 0px"
+            className={`${styles.captionReveal} ${styles.hotelCaptionReveal}`}
+          >
+            <article className={`${styles.caption} ${styles.hotelCaption}`}>
+              <h3 className={styles.cardTitle}>
+                <span className={styles.cardTitleAccent}>仕上がり</span>
+                <span>が決まらない。</span>
+              </h3>
+              <p className={styles.cardBody}>
+                <span>備え付けのドライヤーは、風量も温度もいつもと違う。旅先では、いつものまとまりやツヤをつくりにくい。</span>
+              </p>
+            </article>
+          </InViewReveal>
         </div>
 
         <div className={`${styles.visualBlock} ${styles.packingBlock}`}>
-          <article className={`${styles.caption} ${styles.packingCaption}`}>
-            <h3 className={styles.cardTitle}>
-              <span className={styles.cardTitleAccent}>荷物</span>
-              <span>がかさばる。</span>
-            </h3>
-            <p className={styles.cardBody}>
-              <span>
-                いつものドライヤーを持っていけば、バッグの中で場所を取る。旅の荷物に、もう一台分の余裕はつくりにくい。</span>
-            </p>
-          </article>
+          <InViewReveal
+            direction="left"
+            delay={160}
+            rootMargin="0px 0px -18% 0px"
+            className={`${styles.captionReveal} ${styles.packingCaptionReveal}`}
+          >
+            <article className={`${styles.caption} ${styles.packingCaption}`}>
+              <h3 className={styles.cardTitle}>
+                <span className={styles.cardTitleAccent}>荷物</span>
+                <span>がかさばる。</span>
+              </h3>
+              <p className={styles.cardBody}>
+                <span>
+                  いつものドライヤーを持っていけば、バッグの中で場所を取る。旅の荷物に、もう一台分の余裕はつくりにくい。</span>
+              </p>
+            </article>
+          </InViewReveal>
 
           <div className={`${styles.scene} ${styles.packingScene}`}>
             <Image

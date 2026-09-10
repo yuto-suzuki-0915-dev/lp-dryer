@@ -1,3 +1,4 @@
+import HoverCtaLink from "@/components/ui/HoverCtaLink";
 import styles from "./FinalCtaSection.module.css";
 
 type FinalCtaSectionProps = {
@@ -8,7 +9,7 @@ type FinalCtaSectionProps = {
 export default function FinalCtaSection({ purchaseUrl, integrated = false }: FinalCtaSectionProps) {
   const ctaContent = (
     <>
-      <span>AIRFOLD DUOを購入する</span>
+      <span className={styles.ctaLabel}>AIRFOLD DUOを購入する</span>
       <span className={styles.ctaArrow} aria-hidden="true">→</span>
     </>
   );
@@ -22,9 +23,9 @@ export default function FinalCtaSection({ purchaseUrl, integrated = false }: Fin
 
       <div className={styles.purchaseBlock}>
         {purchaseUrl ? (
-          <a className={styles.cta} href={purchaseUrl}>
+          <HoverCtaLink className={styles.cta} href={purchaseUrl}>
             {ctaContent}
-          </a>
+          </HoverCtaLink>
         ) : (
           <button className={styles.cta} type="button" disabled>
             {ctaContent}
