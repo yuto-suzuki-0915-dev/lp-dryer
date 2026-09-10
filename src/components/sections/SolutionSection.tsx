@@ -1,4 +1,5 @@
 import Image from "next/image";
+import CountUpValue from "@/components/ui/CountUpValue";
 import styles from "./SolutionSection.module.css";
 
 export default function SolutionSection() {
@@ -41,11 +42,17 @@ export default function SolutionSection() {
 
         <p className={`${styles.comparisonLabel} ${styles.phoneLabel}`}>
           <span>iPhone 17</span>
-          <strong>149.6 mm</strong>
+          <strong>
+            <CountUpValue end={149.6} decimals={1} />
+            <span className={styles.measurementUnit}>mm</span>
+          </strong>
         </p>
         <p className={`${styles.comparisonLabel} ${styles.productLabel}`}>
           <span>AIRFOLD DUO</span>
-          <strong>151 mm</strong>
+          <strong>
+            <CountUpValue end={151} decimals={0} />
+            <span className={styles.measurementUnit}>mm</span>
+          </strong>
         </p>
       </div>
     </section>

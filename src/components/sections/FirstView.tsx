@@ -1,4 +1,5 @@
 import Image from "next/image";
+import HoverCtaLink from "@/components/ui/HoverCtaLink";
 import styles from "./FirstView.module.css";
 
 type FirstViewProps = {
@@ -143,9 +144,9 @@ export default function FirstView({ purchaseUrl }: FirstViewProps) {
         </ul>
 
         {purchaseUrl ? (
-          <a className={styles.cta} href={purchaseUrl}>
+          <HoverCtaLink className={styles.cta} href={purchaseUrl}>
             {ctaContent}
-          </a>
+          </HoverCtaLink>
         ) : (
           <button className={styles.cta} type="button" disabled>
             {ctaContent}
