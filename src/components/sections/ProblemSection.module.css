@@ -272,3 +272,13 @@
   top: 4cqw;
   left: 0;
 }
+
+@media (min-width: 431px) {
+  .problem {
+    padding-bottom: 0;
+  }
+
+  .conflict {
+    margin-bottom: 0;
+  }
+}

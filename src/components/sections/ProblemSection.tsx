@@ -26,6 +26,7 @@ export default function ProblemSection() {
             direction="right"
             delay={160}
             rootMargin="0px 0px -18% 0px"
+            initiallyHidden
             className={`${styles.captionReveal} ${styles.hotelCaptionReveal}`}
           >
             <article className={`${styles.caption} ${styles.hotelCaption}`}>
@@ -45,6 +46,7 @@ export default function ProblemSection() {
             direction="left"
             delay={160}
             rootMargin="0px 0px -18% 0px"
+            initiallyHidden
             className={`${styles.captionReveal} ${styles.packingCaptionReveal}`}
           >
             <article className={`${styles.caption} ${styles.packingCaption}`}>
